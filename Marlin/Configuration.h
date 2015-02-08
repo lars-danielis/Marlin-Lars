@@ -36,7 +36,7 @@ Here are some standard links for getting your machine calibrated:
 //
 
 // Mendel90 hobbed bolt and 39:11 Wade's gears
-#define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142)*100.0/101.4)
+#define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142)*100.0/87,81)
 #define Z_MAX_DISTANCE 201.96
 
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
