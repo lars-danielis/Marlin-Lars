@@ -37,7 +37,7 @@ Here are some standard links for getting your machine calibrated:
 
 // Mendel90 hobbed bolt and 39:11 Wade's gears
 #define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142)*100.0/87,81)
-#define Z_MAX_DISTANCE 201.96
+#define Z_MAX_DISTANCE 202.04
 
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
@@ -404,10 +404,10 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
   #ifdef AUTO_BED_LEVELING_GRID
 
     // set the rectangle in which to probe
-    #define LEFT_PROBE_BED_POSITION 70
-    #define RIGHT_PROBE_BED_POSITION -95
-    #define BACK_PROBE_BED_POSITION 95
-    #define FRONT_PROBE_BED_POSITION -85
+    #define LEFT_PROBE_BED_POSITION -90
+    #define RIGHT_PROBE_BED_POSITION 90
+    #define BACK_PROBE_BED_POSITION 90
+    #define FRONT_PROBE_BED_POSITION -90
 
      // set the number of grid points per dimension
      // I wouldn't see a reason to go above 3 (=9 probing points on the bed)
@@ -430,9 +430,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
   // these are the offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -25
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -29
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -12.35
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 40
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -3
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.6
 
   #define Z_RAISE_BEFORE_HOMING 0       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
