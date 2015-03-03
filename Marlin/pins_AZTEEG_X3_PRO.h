@@ -4,6 +4,8 @@
 
 #include "pins_RAMPS_13.h"
 
+#define FAN_PIN             9 // (Sprinter config)
+#define BEEPER             33
 #define E2_STEP_PIN        23
 #define E2_DIR_PIN         25
 #define E2_ENABLE_PIN      40
@@ -16,6 +18,7 @@
 #define E4_DIR_PIN         37
 #define E4_ENABLE_PIN      42
 
+#define HEATER_1_PIN       -1
 #define HEATER_2_PIN       16
 #define HEATER_3_PIN       17
 #define HEATER_4_PIN       4

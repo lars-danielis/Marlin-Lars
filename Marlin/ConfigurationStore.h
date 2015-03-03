@@ -1,5 +1,5 @@
-#ifndef CONFIG_STORE_H
-#define CONFIG_STORE_H
+#ifndef CONFIGURATIONSTORE_H
+#define CONFIGURATIONSTORE_H
 
 #include "Configuration.h"
 

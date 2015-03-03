@@ -5,6 +5,8 @@
 
 #ifdef ULTRA_LCD
 
+  int lcd_strlen(char *s);
+  int lcd_strlen_P(const char *s);
   void lcd_update();
   void lcd_init();
   void lcd_setstatus(const char* message);
