@@ -92,6 +92,18 @@
   #endif
 
   /**
+   * Mesh Bed Leveling
+   */
+  #ifdef MESH_BED_LEVELING
+    #ifdef DELTA
+      #error MESH_BED_LEVELING does not yet support DELTA printers
+    #endif
+    #ifdef ENABLE_AUTO_BED_LEVELING
+      #error Select ENABLE_AUTO_BED_LEVELING or MESH_BED_LEVELING, not both
+    #endif
+  #endif
+
+  /**
    * Auto Bed Leveling
    */
   #ifdef ENABLE_AUTO_BED_LEVELING
@@ -100,7 +112,7 @@
      * Require a Z Min pin
      */
     #if Z_MIN_PIN == -1
-      #if Z_PROBE_PIN == -1 || (! defined (Z_PROBE_ENDSTOP) || defined (DISABLE_Z_PROBE_ENDSTOP)) // It's possible for someone to set a pin for the Z Probe, but not enable it.
+      #if Z_PROBE_PIN == -1 || (!defined(Z_PROBE_ENDSTOP) || defined(DISABLE_Z_PROBE_ENDSTOP)) // It's possible for someone to set a pin for the Z Probe, but not enable it.
         #ifdef Z_PROBE_REPEATABILITY_TEST
           #error You must have a Z_MIN or Z_PROBE endstop to enable Z_PROBE_REPEATABILITY_TEST.
         #else

@@ -40,6 +40,10 @@
 #define Y2_DIR_PIN         34
 #define Y2_ENABLE_PIN      30
 
+#undef Z2_STEP_PIN
+#undef Z2_DIR_PIN
+#undef Z2_ENABLE_PIN
+
 #define Z2_STEP_PIN        36
 #define Z2_DIR_PIN         34
 #define Z2_ENABLE_PIN      30
@@ -62,12 +66,12 @@
   #define FILWIDTH_PIN        5
 #endif
 
-#if defined(Z_PROBE_ENDSTOP)
+#ifdef Z_PROBE_ENDSTOP
   // Define a pin to use as the signal pin on Arduino for the Z_PROBE endstop.
- #define Z_PROBE_PIN 32
+  #define Z_PROBE_PIN 32
 #endif
 
-#if defined(FILAMENT_RUNOUT_SENSOR)
+#ifdef FILAMENT_RUNOUT_SENSOR
   // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
   #define FILRUNOUT_PIN        4
 #endif
