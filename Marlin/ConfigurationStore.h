@@ -19,4 +19,4 @@ void Config_ResetDefault();
   FORCE_INLINE void Config_RetrieveSettings() { Config_ResetDefault(); Config_PrintSettings(); }
 #endif
 
-#endif // __CONFIG_STORE_H
+#endif //CONFIGURATIONSTORE_H

@@ -34,6 +34,7 @@
 #define Z_ENABLE_PIN       62
 #define Z_MIN_PIN          18
 #define Z_MAX_PIN          19
+#define Z_PROBE_PIN        -1
 
 #define Y2_STEP_PIN        36
 #define Y2_DIR_PIN         34
@@ -59,6 +60,16 @@
   // define analog pin for the filament width sensor input
   // Use the RAMPS 1.4 Analog input 5 on the AUX2 connector
   #define FILWIDTH_PIN        5
+#endif
+
+#if defined(Z_PROBE_ENDSTOP)
+  // Define a pin to use as the signal pin on Arduino for the Z_PROBE endstop.
+ #define Z_PROBE_PIN 32
+#endif
+
+#if defined(FILAMENT_RUNOUT_SENSOR)
+  // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
+  #define FILRUNOUT_PIN        4
 #endif
 
 #if MB(RAMPS_13_EFB) || MB(RAMPS_13_EFF)
@@ -108,18 +119,14 @@
 
 #ifdef NUM_SERVOS
   #define SERVO0_PIN         11
-
   #if NUM_SERVOS > 1
-    #define SERVO1_PIN         6
-  #if NUM_SERVOS > 2
-    #define SERVO2_PIN         5
-  
-
-  #if NUM_SERVOS > 3
-    #define SERVO3_PIN         4
-  #endif
-#endif
-
+    #define SERVO1_PIN        6
+    #if NUM_SERVOS > 2
+      #define SERVO2_PIN      5
+      #if NUM_SERVOS > 3
+        #define SERVO3_PIN    4
+      #endif
+    #endif
   #endif
 #endif
 
@@ -134,13 +141,14 @@
       #define LCD_PINS_D6 44
       #define LCD_PINS_D7 64
     #else
-    #define LCD_PINS_RS 16
-    #define LCD_PINS_ENABLE 17
-    #define LCD_PINS_D4 23
-    #define LCD_PINS_D5 25
-    #define LCD_PINS_D6 27
-    #define LCD_PINS_D7 29
+      #define LCD_PINS_RS 16
+      #define LCD_PINS_ENABLE 17
+      #define LCD_PINS_D4 23
+      #define LCD_PINS_D5 25
+      #define LCD_PINS_D6 27
+      #define LCD_PINS_D7 29
     #endif
+
 
     #ifdef REPRAP_DISCOUNT_SMART_CONTROLLER
       #define BEEPER 37
