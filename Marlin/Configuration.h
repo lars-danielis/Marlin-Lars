@@ -492,7 +492,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -3     // Probe on: -front +behind
   #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.63  // -below (always!)
 
-  #define Z_RAISE_BEFORE_HOMING 1.5       // (in mm) Raise Z before homing (G28) for Probe Clearance.
+  #define Z_RAISE_BEFORE_HOMING 2       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
 
   #define XY_TRAVEL_SPEED 8000         // X and Y axis travel speed between probes, in mm/min
