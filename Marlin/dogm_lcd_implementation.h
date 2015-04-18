@@ -108,21 +108,6 @@
 
 #define START_ROW              0
 
-/* Custom characters defined in font font_6x10_marlin_symbols */
-// \x00 intentionally skipped to avoid problems in strings
-#define LCD_STR_REFRESH     "\x01"
-#define LCD_STR_FOLDER      "\x02"
-#define LCD_STR_ARROW_RIGHT "\x03"
-#define LCD_STR_UPLEVEL     "\x04"
-#define LCD_STR_CLOCK       "\x05"
-#define LCD_STR_FEEDRATE    "\x06"
-#define LCD_STR_BEDTEMP     "\x07"
-#define LCD_STR_THERMOMETER "\x08"
-#define LCD_STR_DEGREE      "\x09"
-
-#define LCD_STR_SPECIAL_MAX '\x09'
-// Maximum here is 0x1f because 0x20 is ' ' (space) and the normal charsets begin.
-// Better stay below 0x10 because DISPLAY_CHARSET_HD44780_WESTERN begins here.
 
 // LCD selection
 #ifdef U8GLIB_ST7920
@@ -285,8 +270,8 @@ static void lcd_implementation_status_screen() {
     }
 
     u8g.setPrintPos(80,48);
-    if (starttime != 0) {
-      uint16_t time = (millis() - starttime) / 60000;
+    if (print_job_start_ms != 0) {
+      uint16_t time = (millis() - print_job_start_ms) / 60000;
       lcd_print(itostr2(time/60));
       lcd_print(':');
       lcd_print(itostr2(time%60));
@@ -353,7 +338,7 @@ static void lcd_implementation_status_screen() {
   lcd_print(LCD_STR_FEEDRATE[0]);
   lcd_setFont(FONT_STATUSMENU);
   u8g.setPrintPos(12,49);
-  lcd_print(itostr3(feedmultiply));
+  lcd_print(itostr3(feedrate_multiplier));
   lcd_print('%');
 
   // Status line
@@ -366,7 +351,7 @@ static void lcd_implementation_status_screen() {
   #ifndef FILAMENT_LCD_DISPLAY
     lcd_print(lcd_status_message);
   #else
-    if (millis() < message_millis + 5000) {  //Display both Status message line and Filament display on the last line
+    if (millis() < previous_lcd_status_ms + 5000) {  //Display both Status message line and Filament display on the last line
       lcd_print(lcd_status_message);
     }
     else {
